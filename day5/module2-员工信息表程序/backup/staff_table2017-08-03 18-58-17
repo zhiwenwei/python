@@ -1,0 +1,10 @@
+staff_id,name,age,phone,dept,enroll-date
+1,wangying,32,897634,IT,2008-02-12
+2,JJ,29,1008611,IT,2014-02-12
+3,zhangsan,36,1008611,HR,2016-02-12
+4,zhiww,29,18898564892,IT,2013-02-12
+5,wangying,12,100861343251,IT,2008-02-12
+6,zhoujielun,29,110,IT,2008-02-12
+7,zhangsan,36,100861221,HR,2008-02-12
+8,zhoujielun,29,114550,IT,2007-02-12
+9,alex,25,13798708765,IT,2015-06-15

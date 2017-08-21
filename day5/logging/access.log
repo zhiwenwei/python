@@ -1,0 +1,6 @@
+2017-07-17 16:45:10,604 root- WARNING - warn message
+2017-07-17 16:45:10,605 root- ERROR - error message
+2017-07-17 16:45:10,605 root- CRITICAL - critical message
+warn message
+error message
+critical message

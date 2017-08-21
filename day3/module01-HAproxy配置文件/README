@@ -1,0 +1,20 @@
+程序名称：HAproxy配置文件操作
+作者：支文伟
+1.博客地址：http://www.cnblogs.com/wenwei-blog/p/6891217.html
+
+2.需求
+  (1)根据用户输入输出对应的backend下的server信息
+  (2) 可添加backend 和sever信息
+  (3)可修改backend 和sever信息
+  (4)可删除backend 和sever信息
+  (5)操作配置文件前进行备份
+  (6)添加server信息时，如果ip已经存在则修改;如果backend不存在则创建；若信息与已有信息重复则不操作
+
+3.本次作业实现的需求：都实现了作业的基本要求.
+
+4.流程图：见/module01-HAproxy配置文件/module01-HAproxy配置文件操作流程图.png
+
+5.程序运行环境:pycharm 2017.1.2     python解释器版本：Python3.5
+
+6.运行测试：运行/module01-HAproxy配置文件/HAproxy配置文件.py主程序，输入编号后输入域名进行操作
+7.备注：无

@@ -1,0 +1,45 @@
+程序名称：模拟登陆
+作者：支文伟
+1.博客地址：http://www.cnblogs.com/wenwei-blog/p/6841691.html
+
+2.需求
+   (1).工信息表程序，实现增删改查操作：
+   (2).可进行模糊查询，语法至少支持下面3种:
+      select name,age from staff_table where age > 22
+      select * from staff_table where dept = "IT"
+      select * from staff_table where enroll_date like "2013"
+   (3).查到的信息，打印后，最后面还要显示查到的条数
+   (4).可创建新员工纪录，以phone做唯一键，staff_id需自增
+   (5).可删除指定员工信息纪录，输入员工id，即可删除
+   (6).可修改员工信息，语法如下:
+    　　UPDATE staff_table SET dept = "Market" where dept = "IT"
+    注意：以上需求，要充分使用函数，请尽你的最大限度来减少重复代码
+    详细描述参考http://www.cnblogs.com/alex3714/articles/5740985.html
+
+3.本次作业实现的需求：都实现了作业的基本要求
+4.流程图：见./员工信息表流程图.png
+
+5.程序运行环境:pycharm 2017.1.2     python解释器版本：Python3.5
+
+6.程序结构
+├── backup                               #备份目录
+│   ├── __init__.py
+│   ├── staff_table2017-08-03 10-38-37  #备份文件
+│   └── staff_table2017-08-03 14-39-07
+├── __init__.py
+├── main.py                             #主程序
+├── README
+├── staff_table                         #员工信息表文件
+
+
+7.运行测试：运行main.py主程序：
+    查询员工信息语句格式例子：select name,age from staff_table where age > 22
+                  select * from staff_table where dept = "IT"
+                  select * from staff_table where enroll_date like "2013"
+    添加员工信息格式例子：
+                  alex,25,100861343251,IT,2008-02-12
+    修改员工语句格式例子：
+                  UPDATE staff_table SET dept = "Market" where dept = "IT"
+    删除员工语句格式例子：
+                   直接输入员工id号
+
