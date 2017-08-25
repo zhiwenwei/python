@@ -3,14 +3,14 @@
 import os
 import time
 import shutil
-staff_table_path = os.path.dirname(os.path.abspath(__file__)) + '/staff_table'  #获取员工信息文件绝对路径
+staff_table_path = os.path.dirname(os.path.abspath(__file__)) + '/db/staff_table'  #获取员工信息文件绝对路径
 backup_dir = os.path.dirname(os.path.abspath(__file__)) + '/backup/'  #备份路径
 def bakcup(func): #定义一个能备份文件的装饰器，在修改原文件前先进行备份
     def bk(*args,**kwargs):
         shutil.copy(staff_table_path,backup_dir + 'staff_table' + time.strftime("%Y-%m-%d %H-%M-%S"))
         func(*args,**kwargs)
     return bk
-def Search():
+def search():
     user_search = input("请输入查询语句：").strip()
     user_search_list = user_search.split(' ') #拆分为列表
     search_info = [] #搜索结果放此列表
@@ -36,7 +36,7 @@ def Search():
             print("\n\033[35;1m一共找到 %d 条信息\033[0m" % len(search_info))
     return search_info
 @bakcup #装饰器：备份文件
-def Add():
+def add():
     user_add = input("请输入添加员工信息的语句：").strip()
     add_list = user_add.split(',') #拆分为列表
     phone = [] #电话列表
@@ -53,7 +53,7 @@ def Add():
         else:
             print("\033[35;1m你要添加的员工信息已经存在！\033[0m\n")
 @bakcup
-def Delete():
+def delete():
     user_del = input("请输入你要删除的员工id号：").strip()
     flag = False
     with open(staff_table_path,'r',encoding='utf-8') as f,\
@@ -74,7 +74,7 @@ def Delete():
     else:
         print("\033[36;1m你查找的员工信息不存在\033[0m")
 @bakcup
-def Alter():
+def alter():
     user_alter = input("请输入你要修改的员工信息语句：").strip()
     altre_list = user_alter.split(' ')
     flag = False
@@ -101,7 +101,7 @@ while True:
     3.修改员工信息
     4.删除员工信息
     5.退出\033[0m""")
-    main_dict = {'1':Search,'2':Add,'3':Alter,'4':Delete}
+    main_dict = {'1':search,'2':add,'3':alter,'4':delete}
     user_choose = input("\033[39;1m请输入你要操作的选项号：\033[0m").strip()
     if user_choose in main_dict.keys():
         main_dict[user_choose]() #执行输入号码对应的函数
