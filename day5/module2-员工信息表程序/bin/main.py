@@ -3,13 +3,16 @@
 import os
 import time
 import shutil
-staff_table_path = os.path.dirname(os.path.abspath(__file__)) + '/db/staff_table'  #获取员工信息文件绝对路径
-backup_dir = os.path.dirname(os.path.abspath(__file__)) + '/backup/'  #备份路径
-def bakcup(func): #定义一个能备份文件的装饰器，在修改原文件前先进行备份
+staff_table_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + r'/db/staff_table'  #获取员工信息文件绝对路径
+print(staff_table_path)
+backup_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/backup/'  #备份路径
+'''定义一个能备份文件的装饰器，在修改原文件前先进行备份'''
+def bakcup(func):
     def bk(*args,**kwargs):
         shutil.copy(staff_table_path,backup_dir + 'staff_table' + time.strftime("%Y-%m-%d %H-%M-%S"))
         func(*args,**kwargs)
     return bk
+'''查询员工信息'''
 def search():
     user_search = input("请输入查询语句：").strip()
     user_search_list = user_search.split(' ') #拆分为列表
@@ -35,7 +38,8 @@ def search():
                 print(' | '.join(i))
             print("\n\033[35;1m一共找到 %d 条信息\033[0m" % len(search_info))
     return search_info
-@bakcup #装饰器：备份文件
+'''添加员工信息'''
+@bakcup
 def add():
     user_add = input("请输入添加员工信息的语句：").strip()
     add_list = user_add.split(',') #拆分为列表
@@ -51,13 +55,14 @@ def add():
             f.write('\n' + str(user_id + 1) + ',' + ','.join(add_list))
             print("\033[35;1m员工 %s 的信息已经添加成功！\033[0m\n" % add_list[0])
         else:
-            print("\033[35;1m你要添加的员工信息已经存在！\033[0m\n")
+            print("\033[35;1m你要添加员工的phone已经存在！\033[0m\n")
+'''删除员工信息'''
 @bakcup
 def delete():
     user_del = input("请输入你要删除的员工id号：").strip()
     flag = False
     with open(staff_table_path,'r',encoding='utf-8') as f,\
-        open(staff_table_path + '_new','w',encoding='utf-8') as f2:
+            open(staff_table_path + '_new','w',encoding='utf-8') as f2:
         for line in f:
             line = line.split(',')
             if line[0] == user_del:
@@ -73,6 +78,7 @@ def delete():
         print("\033[35;1m员工 %s 对应的id %s 已经删除\033[0m" %(username,user_del) )
     else:
         print("\033[36;1m你查找的员工信息不存在\033[0m")
+'''修改员工信息'''
 @bakcup
 def alter():
     user_alter = input("请输入你要修改的员工信息语句：").strip()
