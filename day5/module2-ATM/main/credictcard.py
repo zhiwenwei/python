@@ -69,6 +69,4 @@ def transfer():
                     print("你输入的账户不存在")
             else:
                 print("你输入的信用卡账号不存在！")
-transfer()
-print("nihao")
 
