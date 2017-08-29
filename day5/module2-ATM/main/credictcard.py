@@ -145,7 +145,3 @@ def repayment():
                     print("你输入的额度非数字或超过还款额度！")
             else:
                 print("你输入的信用卡账号不存在！")
-
-repayment()
-# takecash()
-print("nihao")
