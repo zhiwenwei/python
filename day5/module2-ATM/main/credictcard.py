@@ -148,3 +148,4 @@ def repayment():
 
 repayment()
 # takecash()
+print("nihao")
