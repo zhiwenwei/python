@@ -3,13 +3,16 @@
 """信用卡中心"""
 import os
 import json
+import sys
 from log import get_logger #导入日志模块
+
 '''获取数据文件的绝对路径'''
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) #获取当前目录的上级目录绝对路径
 creditcard_path = base_dir + '/db/creditcard_data'
 user_path = base_dir + '/db/user_data'
 recordlog_path = base_dir + '/log/record.log'
 logger = get_logger() #日志实例化对象
+
 '''个人信用卡信息'''
 def creditcard_info():
     while True:
@@ -145,4 +148,3 @@ def repayment():
                     print("你输入的额度非数字或超过还款额度！")
             else:
                 print("你输入的信用卡账号不存在！")
-print("test")
