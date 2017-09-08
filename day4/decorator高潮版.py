@@ -20,13 +20,12 @@ def auth(auth_type):
 @auth(auth_type="local")
 def index():
     print("welcome to index page")
-    return "from index"
-@auth(auth_type="local") #home = auth
-def home():
-    print("welcome to home page")
-@auth(auth_type="local")
+#     return "from index"
+# @auth(auth_type="local") #home = auth
+# def home():
+#     print("welcome to home page")
+# @auth(auth_type="local")
 def bbs():
     print("welcome to bbs page")
+# @auth(auth_type="local")
 index()
-home()
-bbs()
