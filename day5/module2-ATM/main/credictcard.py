@@ -25,7 +25,7 @@ def creditcard_info():
                       % (creditcard_data[choice]["personinfo"],choice,creditcard_data[choice]["deflimit"],
                          creditcard_data[choice]["limit"],creditcard_data[choice]["limitcash"]))
             elif choice == "q":
-                    break
+                break
             else:
                 print("你输入的信用卡不存在！")
 '''信用卡转账'''

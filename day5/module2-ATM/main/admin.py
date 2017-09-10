@@ -10,6 +10,7 @@ user_dir = base_dir + '/db/user_data'
 def auth_admin(func):
     def wrapper(*args,**kwargs):
         while True:
+            print("管理员用户认证".center(60,'-'))
             username = input("请输入管理员账户：").strip()
             passwd = input("请输入管理员密码：").strip()
             with open(user_dir, 'r', encoding='utf-8') as f:
@@ -55,6 +56,7 @@ def apply():
             else:
                 print("输入信用卡有误!")
 '''修改信用卡密码'''
+@auth_admin
 def alter_pw():
     while True:
         print("修改信用卡密码".center(40,'-'))
@@ -82,8 +84,10 @@ def alter_pw():
             else:
                 print("你输入的信用卡有误")
 '''添加管理员账户'''
+@auth_admin
 def alter_admin():
     while True:
+        print("添加管理员账户".center(50,'-'))
         username = input("请设置管理员账户名：").strip()
         passwd = input("请设置账户密码：").strip()
         with open(user_dir,'r+',encoding='utf-8') as f:
@@ -103,4 +107,3 @@ def alter_admin():
             else:
                 print("该管理账户名[%s]已存在！请换一个用户名！"%(username))
                 continue
-alter_admin()

@@ -38,7 +38,7 @@ def mall():
                 logger.debug(shopping_info)
             else:
                 print("没有对应的商品编号，请重新输入！")
-        elif choice_id == 'q':
+        elif choice_id == "q":
             with open(shopping_car,'r+',encoding='utf-8') as f:
                 list = json.loads(f.read())
                 list.extend(product_list2)
@@ -48,7 +48,6 @@ def mall():
                 f.write(list)
                 f.flush()
                 break
-                # f.flush()
         else:
             print("没有对应的商品编号，请重新输入！")
 #mall()
