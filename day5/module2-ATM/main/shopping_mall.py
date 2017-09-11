@@ -10,18 +10,15 @@ shopping_car = base_dir + '/db/shopping_car'
 creditcard_data = base_dir + '/db/creditcard_data'
 
 '''购物商城'''
-
 def mall():
     product_list = []
     product_list2 = []
     with open(shopping_data,'r',encoding='utf8') as f:
         for i in f:
             product_list.append(i.strip("\n").split(' ')) #拆分为列表并添加到product_list
-    #print(product_list,len(product_list))
     def product_info():
         for index,item in enumerate(product_list):
             print(index +1,item[0],item[1])
-        #product_info()
     while True:
         print("欢迎来到购物商城".center(30, '-'))
         product_info()
@@ -43,14 +40,13 @@ def mall():
                 list = json.loads(f.read())
                 list.extend(product_list2)
                 f.seek(0)
-                #f.truncate(0)
                 list = json.dumps(list)
                 f.write(list)
                 f.flush()
                 break
         else:
             print("没有对应的商品编号，请重新输入！")
-#mall()
+
 '''清空购物车'''
 def del_shoppingcar():
     while True:
@@ -67,11 +63,14 @@ def del_shoppingcar():
                     f.write(list)
                     f.flush()
                     print("购物车已经清空！")
+                    break
                 else:
                     print("你还没有消费，购物车为空！")
         else:
             print("你输入指令有误！")
             break
+
+'''购物结算'''
 def shopping_pay():
     while True:
         print("购物结算".center(50,'-'))
@@ -117,3 +116,15 @@ def shopping_pay():
                         print("密码有误，请重新输入！")
                 else:
                     print("你输入的信用卡不存在！")
+
+'''查看购物车'''
+def search_shopppingcar():
+    print("购物车".center(60,'-'))
+    with open(shopping_car,'r',encoding='utf-8') as f:
+        shopping_car_info = json.loads(f.read())
+        if shopping_car_info != []:
+            print("\t商品\t价格")
+            for i in shopping_car_info:
+                print(i)
+        else:
+            print("购物车为空，请去商城看看！！！")

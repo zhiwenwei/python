@@ -43,7 +43,8 @@ def admin_list():
 def shopping_list():
     list = ["购物商城",
             "购物结算",
-            "清空购物车"
+            "清空购物车",
+            "查看购物车"
             ]
     index = 0
     for i in list:
@@ -52,7 +53,7 @@ def shopping_list():
 
 '''主函数'''
 def core():
-    print("欢迎来到购物长城ATM系统".center(30,'-'))
+    print("欢迎来到购物商城ATM系统".center(30,'-'))
     while True:
         core_list()
         choice = input("请选择ID：").strip()
@@ -95,16 +96,19 @@ def core():
                         if shop_choice == "exit":exit("已退出程序，欢迎下次使用！")
                         if shop_choice.isdigit():
                             shop_choice = int(shop_choice)
-                            if 1 <= shop_choice <= 3:
+                            if 1 <= shop_choice <= 4:
                                 while True:
                                     if shop_choice == 1:
                                         mall()
                                         break
                                     elif shop_choice == 2:
-                                        del_shoppingcar()
+                                        shopping_pay()
                                         break
                                     elif shop_choice == 3:
-                                        shopping_pay()
+                                        del_shoppingcar()
+                                        break
+                                    elif shop_choice == 4:
+                                        search_shopppingcar()
                                         break
                             else:
                                 print("请输入正确的id")
@@ -137,4 +141,3 @@ def core():
                 print("请输入正确的id")
         else:
             print("你输入有误！")
-core()

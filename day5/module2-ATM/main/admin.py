@@ -10,16 +10,21 @@ user_dir = base_dir + '/db/user_data'
 def auth_admin(func):
     def wrapper(*args,**kwargs):
         while True:
-            print("管理员用户认证".center(60,'-'))
-            username = input("请输入管理员账户：").strip()
-            passwd = input("请输入管理员密码：").strip()
-            with open(user_dir, 'r', encoding='utf-8') as f:
-                _user_data = json.loads(f.read())
-                if username in _user_data.keys() and int(passwd) == int(_user_data[username]):
-                    print("用户%s认证成功"%(username))
-                else:
-                    print("用户名或密码有误")
-                    continue
+            check = input("是否确认认证用户？y确认q退出认证")
+            if check == "y":
+                print("管理员用户认证".center(60,'-'))
+                username = input("请输入管理员账户：").strip()
+                passwd = input("请输入管理员密码：").strip()
+                with open(user_dir, 'r', encoding='utf-8') as f:
+                    _user_data = json.loads(f.read())
+                    if username in _user_data.keys() and int(passwd) == int(_user_data[username]):
+                        print("用户%s认证成功"%(username))
+                    else:
+                        print("用户名或密码有误")
+                        continue
+            else:
+                print("已退出管理用户认证")
+                break
             func(*args,**kwargs)
     return wrapper
 
@@ -45,6 +50,7 @@ def apply():
                             f.write(dict)
                             f.flush()
                             print("申请信用卡成功！\n卡号：%s\t持卡人：%s\n额度：15000\t取现额度：7500"%(credictcard_id,apply_user))
+                            break
                         else:
                             print("输入密码有误！")
                             continue
