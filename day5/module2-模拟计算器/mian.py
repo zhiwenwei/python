@@ -16,8 +16,10 @@ def multiply_divide(num):
         if re.search("-?\d+\.?\d*\*-?\d+\.?\d*",ret): #是*的时候
             n1,n2 = re.split("\*",ret) #以*号拆分两边的数字
             multiply = float(n1)*float(n2)  #得到数字进行运算
-            if re.search("-\d+\.?\d*\*-\d+\.?\d*",num): #两负相乘的正，得加上+
+            if re.search("-\d+\.?\d*\*-\d+\.?\d*",num): #两负相乘加上+
+                print(num,"nimei1")
                 num = re.sub("-?\d+\.?\d*\*-?\d+\.?\d*",("+"+str(multiply)),num,1) #替换刚算的公式
+                print(num,"nimei")
                 return multiply_divide(num) #继续递归
             else:
                 num = re.sub("-?\d+\.?\d*\*-?\d+\.?\d*", str(multiply), num, 1) #一般正常情况下替换

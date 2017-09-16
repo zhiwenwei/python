@@ -10,7 +10,7 @@ user_dir = base_dir + '/db/user_data'
 def auth_admin(func):
     def wrapper(*args,**kwargs):
         while True:
-            check = input("是否确认认证用户？y确认q退出认证")
+            check = input("是否确认认证用户？y确认q退出认证：")
             if check == "y":
                 print("管理员用户认证".center(60,'-'))
                 username = input("请输入管理员账户：").strip()
