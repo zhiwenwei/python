@@ -26,8 +26,8 @@ print(a)
 """
 #数字和字母组合验证码
 tmp = ''
-for i in range(5):
-    current2 = random.randrange(0,5)
+for i in range(6):
+    current2 = random.randrange(0,6)
     if current2 == i:
         b = chr(random.randint(97,122))
     else:
