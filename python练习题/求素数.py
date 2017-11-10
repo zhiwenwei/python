@@ -13,3 +13,19 @@ while (i < 100):
     else:
         l.append(i)
 print(' '.join(map(str,l)))
+
+#请定义一个函数，实现输入n，输出0-n之间的所有素数。
+
+def sushu():
+    i = 1
+    l = []
+    num = input("请输入一个素数：")
+    while (i < int(num)):
+        i += 1
+        for a in range(2, i):
+            if i % a == 0:
+                break
+        else:
+            l.append(i)
+    print(' '.join(map(str, l)))
+sushu()
