@@ -9,6 +9,7 @@ if platform.system() == "Windows":
 else:
     BASE_DIR = "/".join(os.path.abspath(os.path.dirname(__file__)).split("/")[:-1])
 sys.path.insert(0,BASE_DIR)
+print(BASE_DIR)
 from core import main
 from conf import settings
 if __name__ == '__main__':
