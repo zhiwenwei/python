@@ -5,7 +5,8 @@
 #生成配置文件
 import configparser
 config = configparser.ConfigParser()
-config['client'] = {'port':'3306','socket':'/tmp/mysql.sock'}
-config['mysqldump'] = {'quick':'','max':'16m'}
-with open('my.cnf', 'w') as configfile:
+config.read()
+config['hostname'] = {'port':'22','socket':'/tmp/mysql.sock'}
+config['hostname2'] = {'quick':'','max':'16m'}
+with open('my.cnf', 'a') as configfile:
    config.write(configfile)

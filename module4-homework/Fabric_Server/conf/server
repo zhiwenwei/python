@@ -1,0 +1,18 @@
+[host1]
+ip = 192.168.10.128
+user = root
+passwd = 123
+port = 22
+
+[host2]
+ip = 192.168.10.128
+user = zww
+passwd = 123
+port = 22
+
+[www.123.com]
+ip = 124.23.23.1
+user = root
+passwd = 123
+port = 22
+

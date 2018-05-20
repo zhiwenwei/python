@@ -7,7 +7,7 @@ ssh = paramiko.SSHClient()
 #允许连接不在know_hosts文件中的主机
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 #连接服务器
-ssh.connect(hostname='45.199.182.238',port=23424,username='zww',password='123')
+ssh.connect(hostname='192.168.10.128',port=22,username='zww',password='123')
 #执行命令并获取命令输出结果
 stdin,stdout,stderr=ssh.exec_command('df -h')
 res=stdout.read()
