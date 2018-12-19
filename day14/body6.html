@@ -5,22 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-<form enctype="multipart/form-data">
+<form enctype="multipart/form-data"> <!--上传文件需要添加此属性multipart/form-data-->
     <div>
-        <select name="city">
+        城市：<select name="city" size="5" multiple="multiple"> <!--multiple多选-->
             <option value="1">广州</option>
-            <option value="2" selected="selected">北京</option>
+            <option value="2" selected="selected">北京</option><!--默认选中selected-->
             <option value="3">上海</option>
             <option value="4">深圳</option>
         </select>
         <p>请选择性别：</p>
         男：<input type="radio" name="gender" value="1" checked="checked"/>
-        女：<input type="radio" name="gender" value="1"/>
+        女：<input type="radio" name="gender" value="2"/>
         <p>爱好</p>
+        <! 默认值checked-->
         篮球：<input type="checkbox" name="favor" value="1" checked="checked"/>
-        足球：<input type="checkbox"name="favor" value="1" checked="checked"/>
-        网球：<input type="checkbox"name="favor" value="1" checked="checked"/>
-        台球：<input type="checkbox"name="favor" value="1" checked="checked"/>
+        足球：<input type="checkbox"name="favor" value="2" checked="checked"/>
+        网球：<input type="checkbox"name="favor" value="3" checked="checked"/>
+        台球：<input type="checkbox"name="favor" value="4"/>
         <p>技能：</p>
         撩妹：<input type="checkbox" name="skill" checked="checked"/>
         写代码：<input type="checkbox" name="skill" />
@@ -30,7 +31,7 @@
     <input type="submit" value="提交"/>
     <input type="reset" value="重置"/>
 
-    <textarea name="nome">默认值</textarea>
+    <textarea name="nome">默认值</textarea> <!--多行文本输入-->
 
 </form>
 

@@ -5,7 +5,7 @@ import sys
 import platform
 import configparser
 import paramiko
-# '''定义配置文件的路径'''
+'''定义配置文件的路径'''
 # if platform.system() == "Windows":
 #     BASE_DIR = "\\".join(os.path.abspath(os.path.dirname(__file__)).split("\\")[:-1])
 # else:
